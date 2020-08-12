@@ -1,0 +1,22 @@
+1- Base das Páginas;
+    - HTMLs;
+    - CSSs primários.
+
+2- Estilos;
+    - Estilização mais elaborada (finalização dos CSSs);
+    - Repaginação/refatoração, separando estilos por funcionalidades na página "partials".
+
+3- Funções visuais JS (addField);
+    - Adicionar função de a cada vez que clicar em "+Novo Horário", será adicionado mais um campo a preencher;
+    - Função feita no addField.js.
+
+4- Servidor JS com nodemon e express, para envio de dados do back para o front e vice versa;
+    - npm init -y;
+    - npm install nodemon -D;
+    - npm install express;
+    - Usar template engine NunJucks com:
+    "npm install nunjucks" para que possamos
+    enviar os arquivos do backend para
+    o front.
+    
+5- Utilização de um banco de dados para armazenamento e Utilização de dados de forma segura.

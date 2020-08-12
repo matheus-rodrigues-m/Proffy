@@ -86,32 +86,40 @@
             <!--Estrutura de repetição nunjucks que vai mandar os dados (ficha de cada prof) de um a um
             como se fosse um array, um for passando por cada posição de um vetor e imprimindo os dados-->
 
-            {%for proffy in proffys%} <!--Para cada professor, dentro dos professores: Imprimir a ficha-->
-            <!--Arrumar os itens para pegar os objetos a serem enviados, ao invés de dados estáticos
-            Isso será feito com os objetos nunjucks, nome sendo proffy.name, proffy.avatar, etc-->
-                <article class="teacher-item">
-                    <header>
-                        <img src="{{proffy.avatar}}"
-                            alt="{{proffy.name}}">
-                        <div>
-                            <strong>{{proffy.name}}</strong>
-                            <span>{{proffy.subject}}</span>
-                        </div>
-                    </header>
+            {% if proffys == "" %}
 
-                    <p>{{proffy.bio}}</p>
+                <p class="no-results">Nenhum professor encontrado com sua pesquisa</p>
 
-                    <footer>
-                        <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
-                        </p>
-                        
-                        <a href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}}, {{proffy.name}}" class="button" target="_blank">
-                            <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato 
-                        </a>
-                    </footer>
-                </article>
-            {%endfor%}
+            {% else %}
 
+                {%for proffy in proffys%} <!--Para cada professor, dentro dos professores: Imprimir a ficha-->
+                <!--Arrumar os itens para pegar os objetos a serem enviados, ao invés de dados estáticos
+                Isso será feito com os objetos nunjucks, nome sendo proffy.name, proffy.avatar, etc-->
+                    <article class="teacher-item">
+                        <header>
+                            <img src="{{proffy.avatar}}"
+                                alt="{{proffy.name}}">
+                            <div>
+                                <strong>{{proffy.name}}</strong>
+                                <span>{{proffy.subject}}</span>
+                            </div>
+                        </header>
+
+                        <p>{{proffy.bio}}</p>
+
+                        <footer>
+                            <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
+                            </p>
+                            
+                            <a href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}}, {{proffy.name}}" class="button" target="_blank">
+                                <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato 
+                            </a>
+                        </footer>
+                    </article>
+                {%endfor%}
+            
+
+            {% endif %}
 
 
         </main>
